@@ -1,0 +1,36 @@
+<h1 class="text-center">{{title}}</h1>
+
+
+<form [formGroup]="emailPWSection" class="card p-3 bg-light" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Email:</label>
+        <input class="form-control" placeholder="Enter your email" type="email" formControlName="firstName" id="email" formControlName="email">
+    </div>
+    <span class="help-block" *ngIf="!emailPWSection.get('email').valid && emailPWSection.get('email').touched">Please enter a valid email</span>
+
+   <div>
+        <label>Verify email:</label>
+        <input class="form-control" placeholder="Re-enter your email for verification" type="email" id="verifyemail" formControlName="verifyemail" compare="email">
+    </div>
+        <span class="help-block" *ngIf="!emailPWSection.get('verifyemail').valid && emailPWSection.get('verifyemail').touched">Please enter a valid verified email</span>
+        
+        
+
+    <br /><br />
+
+    <div>
+        <label>Password:</label>
+        <input class="form-control" placeholder="Enter your password" type="password" id="password" formControlName="password">
+    </div>
+
+    <div>
+        <label>Verify password:</label>
+        <input class="form-control" placeholder="Re-enter your password for verification" type="password" id="verifypassword" formControlName="verifypassword" >
+	         <div *ngIf="f.verifypassword.errors.mustMatch">Passwords must match</div>
+    </div>
+    <br />
+            
+    <button class="btn btn-primary float-right" type="submit">Submit</button>
+    
+</form>
+
