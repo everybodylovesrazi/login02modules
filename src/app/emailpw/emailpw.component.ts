@@ -10,6 +10,7 @@ import { MustMatch } from 'src/app/emailpw/mustmatch.validator';
 export class EmailpwComponent implements OnInit {
    emailPWSection : FormGroup; 
    submitted = false;
+   title:string;
 
    constructor(private formBuilder: FormBuilder) { }
 
